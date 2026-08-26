@@ -13,7 +13,7 @@
     <div class="display">
         <input type="text" id="password"
         placeholder="password">
-        <img src="/images/copy.svg" alt="Copy icon" >
+        <img src="/images/copy.svg" alt="Copy icon" onclick="copyPassword()">
     </div>
     <button onclick="createPassword()"><img src="/images/halloween-butcher-horror-svgrepo-com.svg" alt="Icon for Generate">Generate Password</button>
 </div>
@@ -44,9 +44,14 @@ function createPassword() {
     passwordBox.value = password;
 }
 
-
+function copyPassword() {
+    passwordBox.select();
+    document.execCommand("copy")
+}
 
 </script>
+
+
 
 </body>
 </html>
