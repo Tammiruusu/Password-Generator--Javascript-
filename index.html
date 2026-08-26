@@ -15,7 +15,7 @@
         placeholder="password">
         <img src="/images/copy.svg" alt="Copy icon" >
     </div>
-    <button><img src="/images/halloween-butcher-horror-svgrepo-com.svg" alt="Icon for Generate">Generate Password</button>
+    <button onclick="createPassword()"><img src="/images/halloween-butcher-horror-svgrepo-com.svg" alt="Icon for Generate">Generate Password</button>
 </div>
 
 <script>
@@ -23,7 +23,28 @@
 const passwordBox = document.getElementById("password");
 const length = 20;
 
-const upperCase = ""
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const number = "0123456789";
+const symbols = "!#¤%&/()=?^*_>;@£${[]}";
+
+const allChars = upperCase + lowerCase + number + symbols;
+
+function createPassword() {
+    let password = "";
+    password += upperCase[Math.floor(Math.random() * upperCase.length)];
+    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    password += number[Math.floor(Math.random() * number.length)];
+    password += symbols[Math.floor(Math.random() * symbols.length)];
+
+    while(length > password.length){
+            password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+
+    passwordBox.value = password;
+}
+
+
 
 </script>
 
